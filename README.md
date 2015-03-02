@@ -44,5 +44,5 @@ base64Img.img('data:image/png;base64,...', 'dest', '1', function(err, filepath) 
 ### .imgSync(data, destpath, name)
 The api same as img, but it's synchronous
 ```js
-var filepath = base64Img.img('data:image/png;base64,...', '', '2');
+var filepath = base64Img.imgSync('data:image/png;base64,...', '', '2');
 ```
