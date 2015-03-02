@@ -16,7 +16,7 @@ mocha
 Convert image file to image base64 data
 * {string} ``filename`` required  
 The image path
-* {function} ``callback`` required  
+* {function} ``callback(err, data)`` required  
 Callback with image base64 data
 ```js
 base64Img.base64('path/demo.png', function(err, data) {})
@@ -36,7 +36,7 @@ Image base64 data
 Dest path, if the destpath is root, pass empty string
 * {string} ``name`` required  
 The image's filename
-* {function} ``callback`` required
+* {function} ``callback(err, filepath)`` required
 ```js
 base64Img.img('data:image/png;base64,...', 'dest', '1', function(err, filepath) {});
 ```
