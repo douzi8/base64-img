@@ -1,6 +1,6 @@
 {
   "name": "base64-img",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert img to base64, or convert base64 to img",
   "main": "base64-img.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/douzi8/base64-img",
   "dependencies": {
+    "ajax-request": "^1.1.0",
     "file-system": "^2.1.0"
   },
   "devDependencies": {

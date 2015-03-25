@@ -52,5 +52,21 @@ describe('Test', function() {
       var filepath = base64Img.imgSync(data, getpath('dest'), '3');
        assert.equal('.jpg', path.extname(filepath));
     });
+
+    it('request', function(done) {
+      var url = 'http://webresource.c-ctrip.com/ResCRMOnline/R5/html5/images/57.png';
+      var demo = readFileSync('img/demo.png');
+      var data = base64Img.base64Sync(getpath('img/demo.png'));
+      
+      base64Img.requestBase64(url, function(err, res, body) {
+        if (err) {
+          done();
+          return console.log(err);
+        }
+
+        assert.equal(body.substr(0, 10), data.substr(0, 10));
+        done();
+      });
+    });
   });
 });

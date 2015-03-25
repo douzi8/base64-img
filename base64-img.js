@@ -1,5 +1,6 @@
 var fs = require('file-system');
 var path = require('path');
+var request = require('ajax-request');
 
 function base64(filename, data) {
   var extname = path.extname(filename).substr(1);
@@ -53,6 +54,29 @@ exports.base64Sync = function(filename) {
   var data = fs.readFileSync(filename);
 
   return base64(filename, data);
+};
+
+/**
+ * @description
+ * Get base64 from url
+ * @example
+ * request.base64(
+ *   'http://webresource.c-ctrip.com/ResCRMOnline/R5/html5/images/57.png', 
+ *   function(err, res, body) {
+ * 
+ *   }
+ * );
+ */
+exports.requestBase64 = function(url, callback) {
+  request({
+    url: url,
+    isBuffer: true
+  }, function (err, res, body) {
+    if (err) return callback(err);
+
+    var data = 'data:' + res.headers['content-type'] + ';base64,' + body.toString('base64');
+    callback(err, res, data);
+  });
 };
 
 /**
