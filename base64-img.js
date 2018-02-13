@@ -5,16 +5,22 @@ var request = require('ajax-request');
 function base64(filename, data) {
   var extname = path.extname(filename).substr(1);
   extname = extname || 'png';
+
+  if (extname === 'svg') {
+    extname = "svg+xml"
+  }
   
   return 'data:image/' + extname + ';base64,' + data.toString('base64');
 }
 
 function img(data) {
-  var reg = /^data:image\/(\w+);base64,([\s\S]+)/;
+  var reg = /^data:image\/([\w+]+);base64,([\s\S]+)/;
   var match = data.match(reg);
   var baseType = {
     jpeg: 'jpg'
   };
+
+  baseType['svg+xml'] = 'svg'
 
   if (!match) {
     throw new Error('image base64 data error');

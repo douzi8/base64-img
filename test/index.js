@@ -69,4 +69,12 @@ describe('Test', function() {
       });
     });
   });
+
+  it('Svg', function() {
+    var data = base64Img.base64Sync(getpath('img/car.svg'))
+
+    fs.writeFileSync(getpath('dest/svg.html'), `<img src="${data}">`, { encoding: 'utf8'})
+
+    base64Img.imgSync(data, getpath('dest'), '4')
+  })
 });
