@@ -1,7 +1,7 @@
 {
   "name": "base64-img",
   "version": "1.0.4",
-  "description": "Convert img to base64, or convert base64 to img",
+  "description": "Convert img or svg to base64, or convert base64 to img",
   "main": "base64-img.js",
   "scripts": {
     "test": "mocha"
@@ -14,7 +14,8 @@
     "base64",
     "img",
     "image",
-    "img base64"
+    "img base64",
+    "svg"
   ],
   "author": "douzi <liaowei08@gmail.com>",
   "license": "ISC",

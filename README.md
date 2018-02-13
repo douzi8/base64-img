@@ -26,6 +26,7 @@ base64Img.base64('path/demo.png', function(err, data) {})
 The api same as base64, but it's synchronous 
 ```js
 var data = base64Img.base64Sync('path/demo.png');
+var data2 = base64Img.base64Sync('path/demo.svg');
 ```
 
 ### .requestBase64(url, callback)
